@@ -101,7 +101,10 @@ if __name__ == '__main__':
         if d.is_input:
             in_device = d
 
-    midi_events = in_device.polling()
-    for event in midi_events:
-        print(event)
+    if in_device is None:
+        print('No input midi device.')
+    else:
+        midi_events = in_device.polling()
+        for event in midi_events:
+            print(event)
 
