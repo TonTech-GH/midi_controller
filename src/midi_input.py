@@ -1,3 +1,5 @@
+import time
+
 import pygame
 import pygame.midi
 
@@ -57,7 +59,7 @@ class MidiDevice:
     def open_input(self):
         self.midi_io = pygame.midi.Input(self.id)
 
-    def polling(self) -> list[MidiEvent]:
+    def polling(self, sleep_sec=0.1) -> list[MidiEvent]:
         if self.midi_io is None:
             self.open_input()
         while True:
@@ -65,6 +67,8 @@ class MidiDevice:
                 midi_events = self.midi_io.read(10)
                 midi_events = [MidiEvent(e) for e in midi_events]
                 return midi_events
+
+            time.sleep(sleep_sec)
 
     # def __del__(self):
     #     if self.midi_io is not None:
