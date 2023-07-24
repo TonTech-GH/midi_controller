@@ -8,6 +8,7 @@ pygame.midi.init()
 
 
 class MidiEvent:
+    """ MIDIイベント解釈 """
     def __init__(self, midi_event) -> None:
         ((key_id, note, velocity, channel), timestamp) = midi_event
         self.key_id = key_id
@@ -68,6 +69,7 @@ class MidiDevice:
                 midi_events = [MidiEvent(e) for e in midi_events]
                 return midi_events
 
+            # loopのみだと取得頻度が過剰で処理負荷が大きいため一時休止させる
             time.sleep(sleep_sec)
 
     # def __del__(self):

@@ -1,5 +1,3 @@
-import time
-
 from src.midi_input import Midi, MidiDevice, MidiEvent
 from src.hot_key import MediaKey, YoutubeHotkey
 
