@@ -1,5 +1,5 @@
 from src.midi_input import Midi, MidiDevice, MidiEvent
-from src.hot_key import MediaKey, YoutubeHotkey
+from src.hot_key import MediaKey, Hotkey
 
 
 class KeyConf:
@@ -34,16 +34,23 @@ class DdjFlx4:
 
         # ---------- Youtube Hot Key -----------
         # right hotkey [0, 2] -> YouTube 10秒戻し
-        KeyConf(key_id=153, note= 2, velocity=127, key_func=YoutubeHotkey.press_key, func_param=YoutubeHotkey.BACK),
+        KeyConf(key_id=153, note= 2, velocity=127, key_func=Hotkey.press_key, func_param=Hotkey.YT_BACK),
 
         # right hotkey [0, 3] -> YouTube 10秒進む
-        KeyConf(key_id=153, note= 3, velocity=127, key_func=YoutubeHotkey.press_key, func_param=YoutubeHotkey.FORWARD),
+        KeyConf(key_id=153, note= 3, velocity=127, key_func=Hotkey.press_key, func_param=Hotkey.YT_FORWARD),
 
         # right hotkey [1, 2] -> YouTube 再生速度アップ
-        KeyConf(key_id=153, note= 6, velocity=127, key_func=YoutubeHotkey.press_key, func_param=YoutubeHotkey.SPEED_DOWN),
+        KeyConf(key_id=153, note= 6, velocity=127, key_func=Hotkey.press_key, func_param=Hotkey.YT_SPEED_DOWN),
 
         # right hotkey [1, 3] -> YouTube 再生速度ダウン
-        KeyConf(key_id=153, note= 7, velocity=127, key_func=YoutubeHotkey.press_key, func_param=YoutubeHotkey.SPEED_UP),
+        KeyConf(key_id=153, note= 7, velocity=127, key_func=Hotkey.press_key, func_param=Hotkey.YT_SPEED_UP),
+
+        # ---------- Youtube Music Hot Key -----------
+        # right hotkey [0, 0] -> YouTubeMusic 10秒戻し
+        KeyConf(key_id=153, note= 0, velocity=127, key_func=Hotkey.press_key, func_param=Hotkey.YTM_BACK),
+
+        # right hotkey [0, 1] -> YouTubeMusic 10秒戻し
+        KeyConf(key_id=153, note= 1, velocity=127, key_func=Hotkey.press_key, func_param=Hotkey.YTM_FORWARD),
 
         # ---------- Other -----------
         # FX ON/OFF -> 終了

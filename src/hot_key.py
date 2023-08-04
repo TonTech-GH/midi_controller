@@ -40,11 +40,14 @@ class MediaKey:
         cls._HIDPostAuxKey(key)
 
 
-class YoutubeHotkey:
-    FORWARD = 'right'
-    BACK = 'left'
-    SPEED_UP = '>'
-    SPEED_DOWN = '<'
+class Hotkey:
+    YT_FORWARD = 'right'
+    YT_BACK = 'left'
+    YT_SPEED_UP = '>'
+    YT_SPEED_DOWN = '<'
+
+    YTM_BACK = 'h'
+    YTM_FORWARD = 'l'
 
     @classmethod
     def press_key(cls, key):
